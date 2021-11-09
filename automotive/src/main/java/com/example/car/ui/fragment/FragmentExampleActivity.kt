@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.car.R
 import com.example.car.ui.base.CarActivity
 
-class FragmentExampleActivity : CarActivity(R.layout.activity_fragment_example) {
+class FragmentExampleActivity : CarActivity(R.layout.activity_example_fragment) {
 
     override fun onCreate(
         savedInstanceState: Bundle?

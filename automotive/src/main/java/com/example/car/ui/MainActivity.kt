@@ -7,6 +7,7 @@ import com.example.car.R
 import com.example.car.ui.base.CarActivity
 import com.example.car.ui.fragment.FragmentExampleActivity
 import com.example.car.ui.http.HttpExampleActivity
+import com.example.car.ui.music.MusicExampleActivity
 
 class MainActivity : CarActivity(R.layout.activity_main) {
 
@@ -30,6 +31,15 @@ class MainActivity : CarActivity(R.layout.activity_main) {
                         Intent(
                             this@MainActivity,
                             HttpExampleActivity::class.java
+                        )
+                    )
+                }
+            findViewById<Button>(R.id.showExampleMusic)
+                .setOnClickListener {
+                    startActivity(
+                        Intent(
+                            this@MainActivity,
+                            MusicExampleActivity::class.java
                         )
                     )
                 }
