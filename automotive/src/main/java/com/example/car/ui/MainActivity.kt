@@ -10,7 +10,9 @@ import com.example.car.ui.http.HttpExampleActivity
 
 class MainActivity : CarActivity(R.layout.activity_main) {
 
-    override fun onCreate(savedInstanceState: Bundle?) = super
+    override fun onCreate(
+        savedInstanceState: Bundle?
+    ) = super
         .onCreate(savedInstanceState)
         .also {
             findViewById<Button>(R.id.showExampleFragment)
