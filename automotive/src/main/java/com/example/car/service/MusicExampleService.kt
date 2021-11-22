@@ -1,11 +1,16 @@
 package com.example.car.service
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat.MediaItem
+import android.support.v4.media.MediaDescriptionCompat
 import android.support.v4.media.session.MediaSessionCompat
+import android.support.v4.media.session.PlaybackStateCompat
 import android.util.Log
 import androidx.media.MediaBrowserServiceCompat
 import java.util.*
+
 
 /**
  * This class provides a MediaBrowser through a service. It exposes the media library to a browsing
@@ -113,13 +118,27 @@ class MusicExampleService : MediaBrowserServiceCompat() {
     override fun onCreate() {
         super.onCreate()
 
-        session = MediaSessionCompat(this, "MusicExampleService")
+        session = MediaSessionCompat(this, TAG)
         sessionToken = session.sessionToken
         session.setCallback(callback)
         session.setFlags(
             MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS or
+                    MediaSessionCompat.FLAG_HANDLES_QUEUE_COMMANDS or
                     MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS
         )
+
+        val stateBuilder = PlaybackStateCompat.Builder()
+            .setActions(
+                PlaybackStateCompat.ACTION_PLAY or
+                        PlaybackStateCompat.ACTION_PLAY_PAUSE or
+                        PlaybackStateCompat.ACTION_STOP
+            )
+        session.setPlaybackState(stateBuilder.build())
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        super.onTaskRemoved(rootIntent)
+        stopSelf()
     }
 
     override fun onDestroy() {
@@ -134,15 +153,28 @@ class MusicExampleService : MediaBrowserServiceCompat() {
         return MediaBrowserServiceCompat.BrowserRoot("root", null)
     }
 
+    private var playable = false
     override fun onLoadChildren(
         parentId: String,
         result: Result<MutableList<MediaItem>>
     ) {
-        result.sendResult(ArrayList())
+        val item = MediaItem(
+            MediaDescriptionCompat
+                .Builder()
+                .setMediaId("TEST_MEDIA_ID+${Date().time}")
+                .setTitle("TEST_TITLE")
+                .setDescription("TEST_DESCRIPTION")
+                .setIconUri(Uri.parse("https://miro.medium.com/max/400/1*XAksToqI3TyMLhcszTCmhg.png"))
+                .setMediaUri(Uri.parse("https://themushroomkingdom.net/sounds/wav/smw/smw_course_clear.wav"))
+                .build(),
+           if (!playable) MediaItem.FLAG_BROWSABLE else MediaItem.FLAG_PLAYABLE
+        )
+        playable = true
+        result.sendResult(arrayListOf(item))
     }
 
-    companion object Contract {
+    private companion object Contract {
 
-        const val TAG = "MusicService"
+        const val TAG = "MusicExampleService"
     }
 }

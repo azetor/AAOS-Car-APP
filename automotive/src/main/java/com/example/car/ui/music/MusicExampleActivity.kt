@@ -17,12 +17,14 @@ class MusicExampleActivity : CarActivity(R.layout.activity_example_music) {
         .also {
             findViewById<Button>(R.id.start)
                 .setOnClickListener {
-                    startService(
-                        Intent(
-                            this@MusicExampleActivity,
-                            MusicExampleService::class.java
-                        )
+                    Intent(
+                        this@MusicExampleActivity,
+                        MusicExampleService::class.java
                     )
+                        .run {
+                            stopService(this)
+                            startService(this)
+                        }
                 }
         }
 }
