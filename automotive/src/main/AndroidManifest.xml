@@ -30,50 +30,64 @@
             android:name="com.google.android.gms.car.application"
             android:resource="@xml/automotive_app_desc" />
 
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data android:name="distractionOptimized" android:value="true"/>
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
         </activity>
-        <activity android:name=".ui.fragment.FragmentExampleActivity" />
-        <activity android:name=".ui.http.HttpExampleActivity" />
-        <activity android:name=".ui.music.MusicExampleActivity" />
+        <activity
+            android:name=".ui.fragment.FragmentExampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.http.HttpExampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.music.MusicExampleActivity"
+            android:exported="true" />
         <activity
             android:name="androidx.car.app.activity.CarAppActivity"
             android:exported="true"
             android:label="Hello World"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
+        <activity
+            android:name=".ui.compose.ComposeExampleActivity"
+            android:exported="true" />
 
         <!-- Main music service, provides media browsing and media playback services to
          consumers through MediaBrowserService and MediaSession. Consumers connect to it through
          MediaBrowser (for browsing) and MediaController (for playback control) -->
-        <service
-            android:name="com.example.car.service.MusicExampleService"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService" />
-            </intent-filter>
-        </service>
+<!--        <service-->
+<!--            android:name="com.example.car.service.MusicExampleService"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.media.browse.MediaBrowserService" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
 
         <meta-data
             android:name="com.android.automotive"
             android:resource="@xml/automotive_app_desc"
             tools:ignore="MetadataTagInsideApplicationTag" />
 
-        <meta-data android:name="androidx.car.app.minCarApiLevel"
+        <meta-data
+            android:name="androidx.car.app.minCarApiLevel"
             android:value="1"
             tools:ignore="MetadataTagInsideApplicationTag" />
 
-        <service
-            android:name=".ui.screen.ScreenExampleService"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="androidx.car.app.CarAppService" />
-            </intent-filter>
-        </service>
+<!--        <service-->
+<!--            android:name=".ui.screen.ScreenExampleService"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="androidx.car.app.CarAppService" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
 
     </application>
 

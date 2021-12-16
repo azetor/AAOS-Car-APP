@@ -57,4 +57,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showExampleCarActivity" />
 
+    <Button
+        android:id="@+id/showExampleCompose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="EXAMPLE_COMPOSE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showExampleScreen" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
