@@ -24,7 +24,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
+        android:theme="@style/Theme.Automotive">
 
         <meta-data
             android:name="com.google.android.gms.car.application"
@@ -61,7 +61,7 @@
             android:label="Hello World"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
         <activity
-            android:name=".ui.compose.ComposeExampleActivity"
+            android:name="com.example.compose.ui.compose.ComposeExampleActivity"
             android:exported="true" />
 
         <!-- Main music service, provides media browsing and media playback services to

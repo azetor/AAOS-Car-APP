@@ -3,8 +3,8 @@ package com.example.car.ui.http
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import com.example.base.CarActivity
 import com.example.car.R
-import com.example.car.ui.base.CarActivity
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*

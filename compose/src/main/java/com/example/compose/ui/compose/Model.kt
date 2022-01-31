@@ -1,4 +1,4 @@
-package com.example.car.ui.compose
+package com.example.compose.ui.compose
 
 
 data class Message(val author: String, val body: String)

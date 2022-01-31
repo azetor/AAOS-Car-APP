@@ -1,2 +1,5 @@
 rootProject.name = "AAOS-Car-APP"
+include ':base'
 include ':automotive'
+include ':phone'
+include ':compose'

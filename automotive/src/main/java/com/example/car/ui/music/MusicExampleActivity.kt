@@ -3,10 +3,9 @@ package com.example.car.ui.music
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import com.example.base.CarActivity
 import com.example.car.R
 import com.example.car.service.MusicExampleService
-
-import com.example.car.ui.base.CarActivity
 
 class MusicExampleActivity : CarActivity(R.layout.activity_example_music) {
 

@@ -1,8 +1,8 @@
 package com.example.car.ui.fragment
 
 import android.os.Bundle
+import com.example.base.CarActivity
 import com.example.car.R
-import com.example.car.ui.base.CarActivity
 
 class FragmentExampleActivity : CarActivity(R.layout.activity_example_fragment) {
 

@@ -1,12 +1,14 @@
-package com.example.car.ui.base
+package com.example.base
 
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
+private const val NO_LAYOUT_RES = -1
+
 open class CarActivity(
-    @LayoutRes val layoutResID: Int
+    @LayoutRes val layoutResID: Int = NO_LAYOUT_RES
 ) : AppCompatActivity() {
 
     override fun onCreate(
@@ -14,7 +16,9 @@ open class CarActivity(
     ) = super
         .onCreate(savedInstanceState)
         .also {
-            setContentView(layoutResID)
+            if (layoutResID != NO_LAYOUT_RES) {
+                setContentView(layoutResID)
+            }
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
